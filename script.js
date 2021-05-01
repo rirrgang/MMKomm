@@ -234,3 +234,20 @@ for(var i = 0; i < mydata.articles.length; i++){
 }
 
 console.log(title_arr.length);
+
+var body = document.body;
+
+for(var i = 0; i < mydata.articles.length; i++){
+  var container = document.createElement('div');
+  
+  var elem = document.createElement('span');
+  var text = document.createTextNode(title_arr[i]);
+
+  container.appendChild(elem);
+  elem.appendChild(text);
+  body.appendChild(container);
+
+  elem.style.backgroundColor = "red";
+  elem.style.marginBottom = "100px"; 
+}
+
