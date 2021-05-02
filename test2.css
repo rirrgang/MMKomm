@@ -1,0 +1,51 @@
+body{
+    background-color: azure;
+    margin:0;
+    padding:0;
+    font-family: 'Oswald', sans-serif;
+}
+
+.marquee{
+    height: 45px;
+    width: 100%;
+    background-color: darkblue;
+    color: white;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.marquee_container{
+    display: block;
+    height: 45px;
+    position: absolute;
+    overflow: hidden;  
+    white-space: nowrap ;
+}
+
+.marquee_start_animation{
+    animation: marquee 120s linear infinite;
+}
+
+.text_container{
+    display:inline-block;
+    margin-left: 2px;
+    background-color: darkblue;
+    height: 42.5px;
+}
+
+.text_frame{
+    float:left;
+    text-align: center;
+    line-height: 42.5px;
+    /* vertical-align: middle; */
+    font-size: 16.5px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
