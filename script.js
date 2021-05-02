@@ -235,19 +235,63 @@ for(var i = 0; i < mydata.articles.length; i++){
 
 console.log(title_arr.length);
 
-var body = document.body;
+//var body = document.body;
 
-for(var i = 0; i < mydata.articles.length; i++){
-  var container = document.createElement('div');
+var marquee = document.createElement("DIV");
+marquee.classList.add("marquee");
+var marquee_container = document.createElement("DIV");
+marquee_container.classList.add("marquee_container");
+
+
+for(var i=0; i<title_arr.length; i++){
+  //Create HTML Nodes
+  var text_container = document.createElement("DIV");
+  var text_frame = document.createElement("SPAN");  
+  var text = document.createTextNode(title_arr[i]); //get Titles of the Articles
   
-  var elem = document.createElement('span');
-  var text = document.createTextNode(title_arr[i]);
+  //Append Children to container
+  marquee_container.appendChild(text_container)
+  text_container.appendChild(text_frame);
+  text_frame.appendChild(text);
 
-  container.appendChild(elem);
-  elem.appendChild(text);
-  body.appendChild(container);
-
-  elem.style.backgroundColor = "red";
-  elem.style.marginBottom = "100px"; 
+  //Add CSS Styles
+  text_container.classList.add("text_container");
+  text_frame.classList.add("text_frame");
+  
+  
 }
 
+//Marquee in HTML-Doc hinzufuegen
+document.body.appendChild(marquee);
+marquee.appendChild(marquee_container);
+
+
+//Start Button hinzufuegen
+var btn_start_anim = document.createElement("BUTTON");
+document.body.appendChild(btn_start_anim);
+
+btn_start_anim.style.marginTop = "100px";
+btn_start_anim.style.width = "100px";
+btn_start_anim.style.height = "45px";
+btn_start_anim.innerHTML = "Start";
+btn_start_anim.onmousedown = function(){start_animate_marquee();}
+
+function start_animate_marquee(){
+  console.log("MARQUEE START!")
+  marquee_container.classList.add("marquee_start_animation");
+}
+
+//Stop Button hinzufuegen
+var btn_stop_anim = document.createElement("BUTTON");
+document.body.appendChild(btn_stop_anim);
+
+btn_stop_anim.style.marginTop = "100px";
+btn_stop_anim.style.width = "100px";
+btn_stop_anim.style.height = "45px";
+btn_stop_anim.innerHTML = "Stop";
+btn_stop_anim.onmousedown = function(){stop_animate_marquee();}
+
+function stop_animate_marquee(){
+  console.log("MARQUEE STOP!")
+  marquee_container.classList.remove("marquee_start_animation");
+}

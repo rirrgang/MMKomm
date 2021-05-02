@@ -1,0 +1,46 @@
+body{
+    background-color: azure;
+    margin:0;
+    padding:0;
+}
+
+
+.marquee{
+    height: 45px;
+    width: 100%;
+    background-color: red;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.marquee_container{
+    display: block;
+    height: 45px;
+    
+    position: absolute;
+    overflow: hidden;  
+
+    white-space: nowrap ;
+}
+
+.marquee_start_animation{
+    animation: marquee 120s linear infinite;
+}
+
+.text_container{
+    display:inline-block;
+    margin-left: 5px;
+    background-color: brown;
+    height: 45px;
+}
+
+.text_frame{
+    float:left;
+    display:inline;
+}
+
+
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
