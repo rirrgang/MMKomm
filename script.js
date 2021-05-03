@@ -219,12 +219,31 @@ var data = {
     }
   ]
 }
+
+function darkenColor(rgb, percentage){
+
+  //var rgb = "rgb(0, 168, 103)"
+
+	var numbers = rgb.replace(/[^\d,-]/g, "");
+	if(rgb == ""){
+		numbers = "255,255,255";
+	}
+	var r = parseInt(numbers.substr(0, numbers.indexOf(",")));
+  var r_len = numbers.substr(0, numbers.indexOf(",")).length;
+  numbers = numbers.substr(r_len+1);
+	var g = parseInt(numbers.substr(0, numbers.indexOf(",")));
+  var g_len = numbers.substr(0, numbers.indexOf(",")).length;
+  numbers = numbers.substr(g_len+1);
+	var b = numbers;
+	return "rgb(" + Math.floor(r-(r/100*percentage)) + ", " +  Math.floor(g-(g/100*percentage)) + ", " + Math.floor(b-(b/100*percentage)) + ")";
+}
+
 var data_str = JSON.stringify(data);
 var mydata = JSON.parse(data_str);
+
 console.log(mydata.status);
 console.log(mydata.totalResults);
 console.log(mydata.articles[0].title);
-
 console.log(mydata.articles.length);
 
 var title_arr = [];
@@ -237,17 +256,51 @@ console.log(title_arr.length);
 
 //var body = document.body;
 
+
+
+//Create Custom Marquee Element
 var marquee = document.createElement("DIV");
 marquee.classList.add("marquee");
+
+//Create Breaking News Container
+var breaking_news_container = document.createElement("DIV");
+breaking_news_container.classList.add("breaking_news_container");
+
+//Create Breaking News Text
+var breaking_news_text = document.createElement("H1");
+breaking_news_text.classList.add("breaking_news_text");
+breaking_news_text.innerHTML = "BREAKING NEWS";
+breaking_news_container.appendChild(breaking_news_text);
+
+
+
+
+//Create Marquee Container Element
 var marquee_container = document.createElement("DIV");
 marquee_container.classList.add("marquee_container");
 
+//Create UI for Scrolling Animation
+var scroll_ui_container = document.createElement("DIV");
+scroll_ui_container.classList.add("scroll_ui_container");
+
+var colors = ['rgb(0, 163, 108)', 'rgb(63, 0, 255)', 'rgb(31, 81, 255)', 'rgb(210, 125, 45)', 'rgb(128, 0, 0)', 'rgb(0, 255, 255)', 'rgb(255, 191, 0)', 'rgb(159, 43, 104)', 'rgb(218, 112, 214)'];
 
 for(var i=0; i<title_arr.length; i++){
   //Create HTML Nodes
   var text_container = document.createElement("DIV");
   var text_frame = document.createElement("SPAN");  
   var text = document.createTextNode(title_arr[i]); //get Titles of the Articles
+
+  if(colors.length == 0){
+    colors.push('rgb(0, 163, 108)', 'rgb(63, 0, 255)', 'rgb(31, 81, 255)', 'rgb(210, 125, 45)', 'rgb(128, 0, 0)', 'rgb(0, 255, 255)', 'rgb(255, 191, 0)', 'rgb(159, 43, 104)', 'rgb(218, 112, 214)');
+  }
+  var x = Math.floor(Math.random() * colors.length);
+  var random_color = colors[x]
+  // var random_color = colors[Math.floor(Math.random() * colors.length)];
+  console.log("NORMALE FARBE: " + random_color);
+  console.log("DUNKLERE FARBE: " + darkenColor(random_color,50));
+  text_container.style.background = "linear-gradient(to top, " + random_color + ", "+ darkenColor(random_color, 50) + " )" ;
+  colors.splice(x, 1)
   
   //Append Children to container
   marquee_container.appendChild(text_container)
@@ -258,40 +311,45 @@ for(var i=0; i<title_arr.length; i++){
   text_container.classList.add("text_container");
   text_frame.classList.add("text_frame");
   
-  
 }
 
 //Marquee in HTML-Doc hinzufuegen
-document.body.appendChild(marquee);
+var marq = document.getElementById("marquee");
+marq.appendChild(marquee);
+// document.body.appendChild(marquee);
+marquee.appendChild(breaking_news_container)
 marquee.appendChild(marquee_container);
+marquee.appendChild(scroll_ui_container);
 
 
-//Start Button hinzufuegen
-var btn_start_anim = document.createElement("BUTTON");
-document.body.appendChild(btn_start_anim);
+//Start + Stop Button für Scroll Animation
+var btn_start_and_stop_anim = document.createElement("DIV");
+btn_start_and_stop_anim.classList.add("btn_start_and_stop_anim");
+var btn_toggle_image = document.createElement("IMG");
+btn_toggle_image.classList.add("btn_toggle_image");
+btn_start_and_stop_anim.appendChild(btn_toggle_image);
 
-btn_start_anim.style.marginTop = "100px";
-btn_start_anim.style.width = "100px";
-btn_start_anim.style.height = "45px";
-btn_start_anim.innerHTML = "Start";
-btn_start_anim.onmousedown = function(){start_animate_marquee();}
+scroll_ui_container.appendChild(btn_start_and_stop_anim);
+//btn_start_and_stop_anim.innerHTML = "Toggle Stop";
+btn_start_and_stop_anim.onmousedown = function(){toggle_animate_marquee();}
 
-function start_animate_marquee(){
-  console.log("MARQUEE START!")
-  marquee_container.classList.add("marquee_start_animation");
+function toggle_animate_marquee(){
+  var anim_state = marquee_container.style.animationPlayState;
+  switch(anim_state){
+    case "paused":
+      btn_toggle_image.style.content = "url('/@resources/icons/pause_icon.png')";
+      marquee_container.style.animationPlayState = "running";
+      break;
+    case "running":
+      btn_toggle_image.style.content = "url('/@resources/icons/play_icon.png')";
+      marquee_container.style.animationPlayState = "paused";
+      break;
+    default:
+      btn_toggle_image.style.content = "url('/@resources/icons/play_icon.png')";
+      marquee_container.style.animationPlayState = "paused";
+      break;
+  }
 }
 
-//Stop Button hinzufuegen
-var btn_stop_anim = document.createElement("BUTTON");
-document.body.appendChild(btn_stop_anim);
 
-btn_stop_anim.style.marginTop = "100px";
-btn_stop_anim.style.width = "100px";
-btn_stop_anim.style.height = "45px";
-btn_stop_anim.innerHTML = "Stop";
-btn_stop_anim.onmousedown = function(){stop_animate_marquee();}
 
-function stop_animate_marquee(){
-  console.log("MARQUEE STOP!")
-  marquee_container.classList.remove("marquee_start_animation");
-}

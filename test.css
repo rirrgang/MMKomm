@@ -2,45 +2,98 @@ body{
     background-color: azure;
     margin:0;
     padding:0;
+    font-family: 'Oswald', sans-serif;
 }
 
 
 .marquee{
-    height: 45px;
+    height: 40px;
     width: 100%;
-    background-color: red;
-    /* overflow: hidden; */
+    background-color: darkblue;
+    color:white;
+    overflow: hidden;
     position: relative;
+    border-bottom: solid 3px darkblue;
+    border-top: solid 3px darkblue;
 }
 
 .marquee_container{
     display: block;
-    height: 45px;
+    height: 40px;
+    float:left;
     
+    animation: marquee 120s linear infinite;
+
     position: absolute;
     overflow: hidden;  
 
-    white-space: nowrap ;
-}
+    left:150px;
 
-.marquee_start_animation{
-    animation: marquee 120s linear infinite;
+    white-space: nowrap ;
+    z-index: 1;
+    
 }
 
 .text_container{
     display:inline-block;
-    margin-left: 5px;
-    background-color: brown;
-    height: 45px;
+    margin-left: 2px;
+    background-color: darkblue;
+    height: 40px;
 }
 
 .text_frame{
     float:left;
-    display:inline;
+    text-align: center;
+    line-height: 40px;
+    /* vertical-align: middle; */
+    font-size: 16.5px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
+.breaking_news_container{
+    background: linear-gradient(to top, red, darkred);
+    width:150px;
+    height:inherit;
+    z-index: 2;
+    position: absolute;
+    border-right: solid 3px darkblue;
+}
+
+.breaking_news_text{
+    height: inherit;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 1px;
+    line-height: 40px;
+}
+
+.scroll_ui_container{
+    background: linear-gradient(to top, white, lightgray);
+    width:40px;
+    height:inherit;
+    z-index: 2;
+    position:absolute;
+    right:0;
+    border-left: solid 3px darkblue;
+}
+
+.btn_start_and_stop_anim{
+    /* background-color : lightgray; */
+    width : 40px;
+    height : 40px;
+}
+
+.btn_toggle_image{
+    width : 40px;
+    height : 40px;
+    content : url('/@resources/icons/pause_icon.png');
+}
 
 @keyframes marquee {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-100%); }
   }
+
+
