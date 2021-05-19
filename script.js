@@ -220,20 +220,21 @@ var data = {
   ]
 }
 
-const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('8a858fc2295b42f1a4dd93236dd0554c');
-var request;
-newsapi.v2.topHeadlines({
-  category: 'business',
-  language: 'en',
-}).then(response => {
-  console.log(response);
-  request = response;
-});
+//const NewsAPI = require('newsapi');
+//const newsapi = new NewsAPI('8a858fc2295b42f1a4dd93236dd0554c');
+//var request;
+// newsapi.v2.topHeadlines({
+//   category: 'business',
+//   language: 'en',
+// }).then(response => {
+//   console.log(response);
+//   request = response;
+// });
 
 
 //JSON Parsing
-var data_str = request;//JSON.stringify(data);
+data_str = JSON.stringify(data);
+//var data_str = request;//JSON.stringify(data);
 var mydata = JSON.parse(data_str);
 
 
