@@ -220,45 +220,33 @@ var data = {
   ]
 }
 
-function darkenColor(rgb, percentage){
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('8a858fc2295b42f1a4dd93236dd0554c');
+var request;
+newsapi.v2.topHeadlines({
+  category: 'business',
+  language: 'en',
+}).then(response => {
+  console.log(response);
+  request = response;
+});
 
-  //var rgb = "rgb(0, 168, 103)"
 
-	var numbers = rgb.replace(/[^\d,-]/g, "");
-	if(rgb == ""){
-		numbers = "255,255,255";
-	}
-	var r = parseInt(numbers.substr(0, numbers.indexOf(",")));
-  var r_len = numbers.substr(0, numbers.indexOf(",")).length;
-  numbers = numbers.substr(r_len+1);
-	var g = parseInt(numbers.substr(0, numbers.indexOf(",")));
-  var g_len = numbers.substr(0, numbers.indexOf(",")).length;
-  numbers = numbers.substr(g_len+1);
-	var b = numbers;
-	return "rgb(" + Math.floor(r-(r/100*percentage)) + ", " +  Math.floor(g-(g/100*percentage)) + ", " + Math.floor(b-(b/100*percentage)) + ")";
-}
-
-var data_str = JSON.stringify(data);
+//JSON Parsing
+var data_str = request;//JSON.stringify(data);
 var mydata = JSON.parse(data_str);
 
-console.log(mydata.status);
-console.log(mydata.totalResults);
-console.log(mydata.articles[0].title);
-console.log(mydata.articles.length);
 
-var title_arr = [];
 
+//Initialising of TOP-Headlines
+var top_headlines = [];
 for(var i = 0; i < mydata.articles.length; i++){
-  title_arr.push(mydata.articles[i].title);
+  top_headlines.push(mydata.articles[i].title);
 }
 
-console.log(title_arr.length);
-
-//var body = document.body;
 
 
-
-//Create Custom Marquee Element
+//Create Custom Generated Marquee Elements
 var marquee = document.createElement("DIV");
 marquee.classList.add("marquee");
 
@@ -272,24 +260,19 @@ breaking_news_text.classList.add("breaking_news_text");
 breaking_news_text.innerHTML = "BREAKING NEWS";
 breaking_news_container.appendChild(breaking_news_text);
 
-
-
-
 //Create Marquee Container Element
 var marquee_container = document.createElement("DIV");
 marquee_container.classList.add("marquee_container");
 
-//Create UI for Scrolling Animation
-var scroll_ui_container = document.createElement("DIV");
-scroll_ui_container.classList.add("scroll_ui_container");
+
 
 var colors = ['rgb(0, 163, 108)', 'rgb(63, 0, 255)', 'rgb(31, 81, 255)', 'rgb(210, 125, 45)', 'rgb(128, 0, 0)', 'rgb(0, 255, 255)', 'rgb(255, 191, 0)', 'rgb(159, 43, 104)', 'rgb(218, 112, 214)'];
 
-for(var i=0; i<title_arr.length; i++){
+for(var i=0; i<top_headlines.length; i++){
   //Create HTML Nodes
   var text_container = document.createElement("DIV");
   var text_frame = document.createElement("SPAN");  
-  var text = document.createTextNode(title_arr[i]); //get Titles of the Articles
+  var text = document.createTextNode(top_headlines[i]); //get Titles of the Articles
 
   if(colors.length == 0){
     colors.push('rgb(0, 163, 108)', 'rgb(63, 0, 255)', 'rgb(31, 81, 255)', 'rgb(210, 125, 45)', 'rgb(128, 0, 0)', 'rgb(0, 255, 255)', 'rgb(255, 191, 0)', 'rgb(159, 43, 104)', 'rgb(218, 112, 214)');
@@ -313,13 +296,11 @@ for(var i=0; i<title_arr.length; i++){
   
 }
 
-//Marquee in HTML-Doc hinzufuegen
-var marq = document.getElementById("marquee");
-marq.appendChild(marquee);
-// document.body.appendChild(marquee);
-marquee.appendChild(breaking_news_container)
-marquee.appendChild(marquee_container);
-marquee.appendChild(scroll_ui_container);
+
+//Create UI for Scrolling Animation
+var scroll_ui_container = document.createElement("DIV");
+scroll_ui_container.classList.add("scroll_ui_container");
+
 
 
 //Start + Stop Button für Scroll Animation
@@ -353,3 +334,11 @@ function toggle_animate_marquee(){
 
 
 
+
+//Marquee in HTML-Doc hinzufuegen
+var marq = document.getElementById("marquee");
+marq.appendChild(marquee);
+// document.body.appendChild(marquee);
+marquee.appendChild(breaking_news_container)
+marquee.appendChild(marquee_container);
+marquee.appendChild(scroll_ui_container);
