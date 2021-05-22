@@ -1,58 +1,23 @@
-//GLOBAL VARIABLES
-var top_headlines = [];
-var breaking_news = check_for_cached_breakingNews_JSON("Facebook");
-
-add_to_breaking_news(breaking_news.articles);
-
 //FUNCTIONS
-function add_to_breaking_news(bn_arr){
+function add_to_breaking_news_array(bn_arr){
   for (var i=0; i < bn_arr.length; i++) {
-    top_headlines.push(bn_arr[i].title);
+    //breaking_news_array.push(bn_arr[i].title);
+    add_to_breaking_news(bn_arr[i].title)
   }
 }
 
-
-
-//Create Custom Generated Marquee Elements
-var marquee = document.createElement("DIV");
-marquee.classList.add("marquee");
-
-//Create Breaking News Container
-var breaking_news_container = document.createElement("DIV");
-breaking_news_container.classList.add("breaking_news_container");
-
-//Create Breaking News Text
-var breaking_news_text = document.createElement("H1");
-breaking_news_text.classList.add("breaking_news_text");
-breaking_news_text.innerHTML = "BREAKING NEWS";
-breaking_news_container.appendChild(breaking_news_text);
-
-//Create Marquee Container Element
-var marquee_container = document.createElement("DIV");
-marquee_container.classList.add("marquee_container");
-
-
-
-var colors = ['rgb(0, 163, 108)', 'rgb(63, 0, 255)', 'rgb(31, 81, 255)', 'rgb(210, 125, 45)', 'rgb(128, 0, 0)', 'rgb(0, 255, 255)', 'rgb(255, 191, 0)', 'rgb(159, 43, 104)', 'rgb(218, 112, 214)'];
-
-for(var i=0; i<top_headlines.length; i++){
+function add_to_breaking_news(article_title){
+  breaking_news_array.push(article_title);
   //Create HTML Nodes
   var text_container = document.createElement("DIV");
   var text_frame = document.createElement("SPAN");  
-  var text = document.createTextNode(top_headlines[i]); //get Titles of the Articles
+  var text = document.createTextNode(article_title); //get Titles of the Articles
 
-  if(colors.length == 0){
-    colors.push('rgb(0, 163, 108)', 'rgb(63, 0, 255)', 'rgb(31, 81, 255)', 'rgb(210, 125, 45)', 'rgb(128, 0, 0)', 'rgb(0, 255, 255)', 'rgb(255, 191, 0)', 'rgb(159, 43, 104)', 'rgb(218, 112, 214)');
-  }
-  var x = Math.floor(Math.random() * colors.length);
-  var random_color = colors[x]
-  // var random_color = colors[Math.floor(Math.random() * colors.length)];
-  console.log("NORMALE FARBE: " + random_color);
-  console.log("DUNKLERE FARBE: " + darkenColor(random_color,50));
-  text_container.style.background = "linear-gradient(to top, " + random_color + ", "+ darkenColor(random_color, 50) + " )" ;
-  colors.splice(x, 1)
-  
+  //Set random background color for each element
+  text_container.style.background = getRandomColor();
+
   //Append Children to container
+  var marquee_container = document.getElementsByClassName("marquee_container")[0];
   marquee_container.appendChild(text_container)
   text_container.appendChild(text_frame);
   text_frame.appendChild(text);
@@ -60,36 +25,47 @@ for(var i=0; i<top_headlines.length; i++){
   //Add CSS Styles
   text_container.classList.add("text_container");
   text_frame.classList.add("text_frame");
+}
 
+function remove_from_breaking_news(){
+  //Get element from breaking news array
+  var article_title = breaking_news_array.slice(0,1)[0];
+  
+  //Get text_container HTML-Node
+  var text_frames = document.getElementsByClassName("text_frame");
+  var text_frame = null;
+  for (var i = 0; i < text_frames.length; i++) {
+    if(text_frames[i].innerHTML == article_title){
+      text_frame = text_frames[i];
+      break;
+    }
+  }
+  var text_container = text_frame.parentElement;
+  text_container.remove(); 
+
+  //Delete First Element from marquee row
+  breaking_news_array.splice(0,1);
+
+  //Append title_node back to marquee row
+  add_to_breaking_news(article_title);
+  
 }
 
 
-//Create UI for Scrolling Animation
-var scroll_ui_container = document.createElement("DIV");
-scroll_ui_container.classList.add("scroll_ui_container");
 
 
+//GLOBAL VARIABLES
+var breaking_news_array = [];
+var breaking_news = check_for_cached_breakingNews_JSON("Facebook");
 
-//Start + Stop Button für Scroll Animation
-var btn_start_and_stop_anim = document.createElement("DIV");
-btn_start_and_stop_anim.classList.add("btn_start_and_stop_anim");
-var btn_toggle_image = document.createElement("IMG");
-btn_toggle_image.classList.add("btn_toggle_image");
-btn_start_and_stop_anim.appendChild(btn_toggle_image);
+//Main
+generateMarquee();
+add_to_breaking_news_array(breaking_news.articles);
+animate_Marquee();
 
-scroll_ui_container.appendChild(btn_start_and_stop_anim);
-//btn_start_and_stop_anim.innerHTML = "Toggle Stop";
-btn_start_and_stop_anim.onmousedown = function(){toggle_animate_marquee();}
+generate_news_boxes();
 
 
 
 
 
-
-//Marquee in HTML-Doc hinzufuegen
-var marq = document.getElementById("marquee");
-marq.appendChild(marquee);
-// document.body.appendChild(marquee);
-marquee.appendChild(breaking_news_container)
-marquee.appendChild(marquee_container);
-marquee.appendChild(scroll_ui_container);
