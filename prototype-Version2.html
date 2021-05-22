@@ -10,62 +10,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
     <script type="text/javascript" src="darkenColor-Version2.js"></script>
-
-    <!-- <script type="text/javascript" src="test2.json"></script> -->
     
 </head>
-
 <body>
 
-
-
-
-    <script>
+<script>
         function openForm() {
-        //   document.getElementById("myForm").style.display = "block";
         var settings = document.getElementById("myForm");
         if (settings.style.display === "none"){
             settings.style.display = "block";
-            document.getElementById("h_container1").style.opacity = "0.1"; 
-            document.getElementById("h_container2").style.opacity = "0.1"; 
-            document.getElementById("h_container3").style.opacity = "0.1"; 
+            var containers = document.querySelectorAll(".holdingcontainer");
+            containers.forEach(container => container.style.opacity = "0.1");
         }
         else{
             settings.style.display = "none";
-            document.getElementById("h_container1").style.opacity = "1"; 
-            document.getElementById("h_container2").style.opacity = "1"; 
-            document.getElementById("h_container3").style.opacity = "1";
-          }
-    
+            var containers = document.querySelectorAll(".holdingcontainer");
+            containers.forEach(container => container.style.opacity = "1");
+          }   
     }
         
         function closeForm() {
           document.getElementById("myForm").style.display = "none";
-          document.getElementById("h_container1").style.opacity = "1"; 
-          document.getElementById("h_container2").style.opacity = "1"; 
-          document.getElementById("h_container3").style.opacity = "1"; 
+          var containers = document.querySelectorAll(".holdingcontainer");
+          containers.forEach(container => container.style.opacity = "1");
         }
-    
-        // function search_for_news(){
-        //     const new_div = document.createElement('DIV');
-        //     new_div.innerHTML = 'Facebook';
-        //     const search_box = document.getElementById("search_box");
-        //     search_box.appendChild(new_div);
-        // }
 </script>
 
-
-
-
-
-
     <div id="marquee"></div>
-
-
     <button type="button" class="button" onclick="openForm()">
-        <!-- <span class="button__icon">
-            <i class="fas fa-sliders-h"></i>
-        </span> -->
         <div class="button__icon">
             <i class="fas fa-sliders-h"></i>
         </div>
@@ -109,18 +81,18 @@
     const todoInput = document.querySelector('.todo-input');
     const todoButton = document.querySelector('.todo-button');
     const todoList = document.querySelector('.todo-list');
-    // const filterOption = document.querySelector('.filter-todo');
     
     document.addEventListener('DOMContentLoaded', getTodos); //EventListener wenn Seite lädt
     todoButton.addEventListener('click', addTodo);
     todoList.addEventListener('click',deleteCheck);
-            // filterOption.addEventListener('click', filterTodo);
     
     function addTodo(event){
         //prevent form from submitting (page refreshing)
         event.preventDefault();
+        //Todo DIV
         const todoDiv = document.createElement('div');
         todoDiv.classList.add('todo');
+        //Create LI
         const newTodo = document.createElement('li');
         newTodo.innerText = todoInput.value;
         newTodo.classList.add('todo-item');
@@ -137,24 +109,19 @@
         //Clear Todo Input Value
         todoInput.value = "";
     }
-            function deleteCheck(e){
-                const item = e.target;
-                //Delete TODO
-                if(item.classList[0]==="trash-btn"){
-                    const todo = item.parentElement;
-                    //Animation
-                    todo.classList.add("fall");
-                    removeLocalTodos(todo);
-                    todo.addEventListener("transitionend",function(){ //remove wird erst ausgelöst, nachdem Animation abgespielt wurde
-                        todo.remove();
-                    })
-                }
-                //Check Mark
-                if(item.classList[0]==="complete-btn"){
-                    const todo = item.parentElement;
-                    todo.classList.toggle("completed");
-                }
-            }
+    function deleteCheck(e){
+        const item = e.target;
+        //Delete TODO
+        if(item.classList[0]==="trash-btn"){
+            const todo = item.parentElement;
+            //Animation
+            todo.classList.add("fall");
+            removeLocalTodos(todo);
+            todo.addEventListener("transitionend",function(){ //remove wird erst ausgelöst, nachdem Animation abgespielt wurde
+                todo.remove();
+            })
+        }
+    }
     
     function saveLocalTodos(todo){
         let todos;
@@ -211,7 +178,6 @@
         localStorage.setItem("todos", JSON.stringify(todos));
     }
         </script>
-
 
 </body>
 <script type="text/javascript" src="script-Version2.js"></script>

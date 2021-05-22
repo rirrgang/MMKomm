@@ -185,7 +185,8 @@ html{
     left: 50%;
     transform: translateX(-50%);
     z-index: 9;
-    min-width: 40%;
+    /* min-width: 40%; */
+    width: 40%;
     background: rgb(135, 125, 125);
     border: 2px solid black;
   }
@@ -253,8 +254,10 @@ form button:hover{
     align-items: center;
 }
 .todo-list{
-    min-width: 30%;
-    list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 30%;
+  list-style: none;
 }
 /* appended user input item */
 .todo{
