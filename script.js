@@ -1,17 +1,27 @@
 //FUNCTIONS
 function add_to_breaking_news_array(bn_arr){
   for (var i=0; i < bn_arr.length; i++) {
-    //breaking_news_array.push(bn_arr[i].title);
-    add_to_breaking_news(bn_arr[i].title)
+    add_to_breaking_news(bn_arr[i].title, bn_arr[i].url)
   }
 }
 
-function add_to_breaking_news(article_title){
-  breaking_news_array.push(article_title);
+function add_to_breaking_news(article_title, article_url){
+
+  if(article_url != null && article_url != undefined){
+    breaking_news_array.push({article_title, article_url});
+  }else{
+    breaking_news_array.push({article_title, article_url: null});
+  }
+  
   //Create HTML Nodes
   var text_container = document.createElement("DIV");
-  var text_frame = document.createElement("SPAN");  
-  var text = document.createTextNode(article_title); //get Titles of the Articles
+  var text_frame = document.createElement("A");  
+  var text = document.createTextNode(article_title); //add Titles of the Articles
+  if(article_url != null && article_url != undefined){ //add url to Title
+    text_frame.href = article_url;
+    text_frame.target = "_blank";
+  }
+  
 
   //Set random background color for each element
   text_container.style.background = getRandomColor();
@@ -29,7 +39,8 @@ function add_to_breaking_news(article_title){
 
 function remove_from_breaking_news(){
   //Get element from breaking news array
-  var article_title = breaking_news_array.slice(0,1)[0];
+  var article_title = breaking_news_array.slice(0,1)[0].article_title;
+  var article_url = breaking_news_array.slice(0,1)[0].article_url;
   
   //Get text_container HTML-Node
   var text_frames = document.getElementsByClassName("text_frame");
@@ -47,7 +58,7 @@ function remove_from_breaking_news(){
   breaking_news_array.splice(0,1);
 
   //Append title_node back to marquee row
-  add_to_breaking_news(article_title);
+  add_to_breaking_news(article_title, article_url);
   
 }
 

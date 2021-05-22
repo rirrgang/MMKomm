@@ -11,7 +11,8 @@ function check_for_cached_news_JSON(query_name){
 }
 
 function load_news_query(query_name){
-    var api_key = 'c635c99cceb048cc885954ba8d4a32ab'
+    //var api_key = 'c635c99cceb048cc885954ba8d4a32ab'
+    var api_key = '8a858fc2295b42f1a4dd93236dd0554c';
     var url = 'https://newsapi.org/v2/everything?' +
               'q=' + query_name + '&' +          
               'apiKey=' + api_key + '';

@@ -52,6 +52,8 @@ html{
     font-weight: bold;
     padding-left: 10px;
     padding-right: 10px;
+    text-decoration: none;
+    color: white;
 }
 
 .breaking_news_container{
@@ -112,7 +114,9 @@ html{
     border: none;
     outline: none;
     /* border-radius: 5px; */
-    border: 3px solid black;
+    border-left: 3px solid #0E353E;
+    border-top: 3px solid #0E353E;
+    border-bottom: 3px solid #0E353E;
     overflow: hidden;
     font-family: "Quicksand", sans-serif;
     font-weight: 600;
@@ -215,7 +219,7 @@ html{
     /* min-width: 40%; */
     width: 40%;
     background: rgb(135, 125, 125);
-    border: 2px solid black;
+    border: 3px solid #0E353E;;
   }
 
   /*arranges close and search button next to each other*/
@@ -317,4 +321,13 @@ form button:hover{
 .fall{
     transform: translateY(8rem) rotateZ(20deg);
     opacity: 0;
+}
+
+.modal-darkener{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: none;
+  background-color: black;
+  opacity: 0.9;
 }
