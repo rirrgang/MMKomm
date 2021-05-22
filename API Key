@@ -1,0 +1,1 @@
+newsapi = News.new("8a858fc2295b42f1a4dd93236dd0554c")    
