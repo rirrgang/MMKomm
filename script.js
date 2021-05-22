@@ -56,14 +56,16 @@ function remove_from_breaking_news(){
 
 //GLOBAL VARIABLES
 var breaking_news_array = [];
-var breaking_news = check_for_cached_breakingNews_JSON("Facebook");
+var breaking_news = check_for_cached_breakingNews_JSON("Microsoft");
+var normal_news = check_for_cached_news_JSON("Microsoft");
 
 //Main
 generateMarquee();
 add_to_breaking_news_array(breaking_news.articles);
 animate_Marquee();
 
-generate_news_boxes();
+//generate_news_boxes();
+add_array_to_news_boxes(normal_news.articles);
 
 
 

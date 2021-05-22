@@ -83,16 +83,36 @@ function add_new_article_container(holdingcontainer, article_count){
             //add default article text
             var article_text = document.createElement("P");
             article_text.classList.add("article_text");
+            article_text.id = "article_text"+article_count;
             article_text.innerHTML = "Article Text Placeholder";
             internalcontainer.appendChild(article_text);
 
             //add default articl link
             var article_link = document.createElement("A");
             article_link.classList.add("article_link");
+            article_link.id = "article_link"+article_count;
             article_link.href = "#";
             article_link.innerHTML = "Article Link Placeholder";
             internalcontainer.appendChild(article_link);
 }
+
+function update_article_infos(article, article_count){
+    var article_keyword = document.getElementById("article_keyword" + article_count);
+    var article_title   = document.getElementById("article_title"   + article_count);
+    var article_img     = document.getElementById("article_img"     + article_count);
+    var article_text    = document.getElementById("article_text"    + article_count);
+    var article_link    = document.getElementById("article_link"    + article_count);
+
+    if(article){
+        if(article.title){article_title.innerHTML = article.title;}
+        if(article.urlToImage){article_img.src = article.urlToImage;}
+        if(article.content){article_text.innerHTML = article.content;}
+        if(article.url){article_link.href = article.url;}
+    }
+}
+
+
+
 
 
 var article_count = 0;
@@ -107,20 +127,23 @@ function add_to_news_boxes(article){
 
         var holdingcontainer = document.createElement("DIV");
         holdingcontainer.classList.add("holdingcontainer");
-        holdingcontainer.id = "h_container" + article_rows;
+        holdingcontainer.id = "holdingcontainer" + article_rows;
         news_boxes.appendChild(holdingcontainer);
 
         
     }else{
-        var holdingcontainer = document.getElementById(h_container + article_rows);
+        var holdingcontainer = document.getElementById("holdingcontainer" + article_rows);
     }
 
     //generate new article container to row
     article_count++;
     add_new_article_container(holdingcontainer, article_count);
-
-
-
-    
+    update_article_infos(article, article_count);
 
 }
+
+function add_array_to_news_boxes(news_array){
+    for (var i=0; i < news_array.length; i++) {
+        add_to_news_boxes(news_array[i])
+    }
+  }

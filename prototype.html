@@ -7,11 +7,192 @@
     <link rel="stylesheet" href="test.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
     
 </head>
 <body>
+
+    <script>
+        function openForm() {
+        //   document.getElementById("myForm").style.display = "block";
+        var settings = document.getElementById("myForm");
+        if (settings.style.display === "none"){
+            settings.style.display = "block";
+            //document.getElementById("h_container1").style.opacity = "0.1"; 
+            //document.getElementById("h_container2").style.opacity = "0.1"; 
+            //document.getElementById("h_container3").style.opacity = "0.1"; 
+        }
+        else{
+            settings.style.display = "none";
+            // document.getElementById("h_container1").style.opacity = "1"; 
+            // document.getElementById("h_container2").style.opacity = "1"; 
+            // document.getElementById("h_container3").style.opacity = "1";
+          }
+    
+    }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+          document.getElementById("h_container1").style.opacity = "1"; 
+          document.getElementById("h_container2").style.opacity = "1"; 
+          document.getElementById("h_container3").style.opacity = "1"; 
+        }
+    
+        // function search_for_news(){
+        //     const new_div = document.createElement('DIV');
+        //     new_div.innerHTML = 'Facebook';
+        //     const search_box = document.getElementById("search_box");
+        //     search_box.appendChild(new_div);
+        // }
+    </script>
+
+
+
+
     <div id="marquee"></div>
-    <div id="news-boxes"></div>
+
+
+    <button type="button" class="button" onclick="openForm()">
+        <!-- <span class="button__icon">
+            <i class="fas fa-sliders-h"></i>
+        </span> -->
+        <div class="button__icon">
+            <i class="fas fa-sliders-h"></i>
+        </div>
+      </button>
+
+    <div class="form-popup" id="myForm" style="display: none;">
+            <div class="form-container">
+            <form>
+                <input type="text" class="todo-input">
+                <button class="todo-button" type="submit" onclick="addTodo()">
+                    <i class="fas fa-plus-square"></i>
+                </button>
+            </form>
+            <div class="todo-container">
+                <ul class="todo-list"></ul>
+            </div>
+        <div class="selector-buttons">
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        <button type="submit" class="btn">Search</button>
+        </div>
+    </div>
+      </div>
+
+
+    <div id="news-boxes" style = "top: 42px; position:absolute; z-index:-1;"></div>
+
+
+    <script>
+        const todoInput = document.querySelector('.todo-input');
+        const todoButton = document.querySelector('.todo-button');
+        const todoList = document.querySelector('.todo-list');
+        // const filterOption = document.querySelector('.filter-todo');
+        
+        document.addEventListener('DOMContentLoaded', getTodos); //EventListener wenn Seite lädt
+        todoButton.addEventListener('click', addTodo);
+        todoList.addEventListener('click',deleteCheck);
+                // filterOption.addEventListener('click', filterTodo);
+        
+        function addTodo(event){
+            //prevent form from submitting (page refreshing)
+            event.preventDefault();
+            const todoDiv = document.createElement('div');
+            todoDiv.classList.add('todo');
+            const newTodo = document.createElement('li');
+            newTodo.innerText = todoInput.value;
+            newTodo.classList.add('todo-item');
+            todoDiv.appendChild(newTodo);
+            //Add Todo to local storage
+            saveLocalTodos(todoInput.value);
+            //Delete Button
+            const trashButton = document.createElement('button');
+            trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+            trashButton.classList.add("trash-btn");
+            todoDiv.appendChild(trashButton);
+            //Append to Child
+            todoList.appendChild(todoDiv);
+            //Clear Todo Input Value
+            todoInput.value = "";
+        }
+                function deleteCheck(e){
+                    const item = e.target;
+                    //Delete TODO
+                    if(item.classList[0]==="trash-btn"){
+                        const todo = item.parentElement;
+                        //Animation
+                        todo.classList.add("fall");
+                        removeLocalTodos(todo);
+                        todo.addEventListener("transitionend",function(){ //remove wird erst ausgelöst, nachdem Animation abgespielt wurde
+                            todo.remove();
+                        })
+                    }
+                    //Check Mark
+                    if(item.classList[0]==="complete-btn"){
+                        const todo = item.parentElement;
+                        todo.classList.toggle("completed");
+                    }
+                }
+        
+        function saveLocalTodos(todo){
+            let todos;
+            //Check if I already have a thing in there
+            if(localStorage.getItem("todos")===null) {
+                todos = [];
+            }
+            else{
+                todos = JSON.parse(localStorage.getItem("todos"));
+            }
+            todos.push(todo);
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+        
+        function getTodos(){
+            let todos;
+            //Check if I already have a thing in there
+            if(localStorage.getItem("todos")===null) {
+                todos = [];
+            }
+            else{
+                todos = JSON.parse(localStorage.getItem("todos"));
+            }
+            todos.forEach(function(todo) { 
+                    //Todo DIV
+                    const todoDiv = document.createElement('div');
+                    todoDiv.classList.add('todo');
+                    //Create LI
+                    const newTodo = document.createElement('li');
+                    newTodo.innerText = todo;
+                    newTodo.classList.add('todo-item');
+                    todoDiv.appendChild(newTodo);
+                    //Delete Button
+                    const trashButton = document.createElement('button');
+                    trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+                    trashButton.classList.add("trash-btn");
+                    todoDiv.appendChild(trashButton);
+                    //Append to Child
+                    todoList.appendChild(todoDiv);
+                });
+                }
+        
+        function removeLocalTodos(todo){
+            let todos;
+            //Check if I already have a thing in there
+            if(localStorage.getItem("todos")===null) {
+                todos = [];
+            }
+            else{
+                todos = JSON.parse(localStorage.getItem("todos"));
+            }
+            const todoIndex = todo.children[0].innerText; //todoIndex = String! aus dem Array der gelöscht werden soll (.innerText holt den String raus) 
+            todos.splice(todos.indexOf(todoIndex),1);
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+            </script>
+
+
+
 </body>
 <!-- UTILITY SCRIPTS -->
 

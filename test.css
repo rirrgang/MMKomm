@@ -12,35 +12,35 @@ html{
 .marquee{
     height: 40px;
     width: 100%;
-    background-color: darkblue;
+    background-color: #0E353E;
     color:white;
     overflow: hidden;
-    position: relative;
-    border-bottom: solid 3px darkblue;
-    border-top: solid 3px darkblue;
+    position: fixed;
+    border-bottom: solid 3px #0E353E;
+    border-top: solid 3px #0E353E;
 }
 
 .marquee_container{
     display: block;
     height: 40px;
     float:left;
-    
+
     /* animation: marquee 120s linear infinite; */
 
     position: absolute;
-    overflow: hidden;  
+    overflow: hidden;
 
     left:150px;
 
     white-space: nowrap ;
     z-index: 1;
-    
+
 }
 
 .text_container{
     display:inline-block;
     margin-left: 2px;
-    background-color: darkblue;
+    background-color: #0E353E;
     height: 40px;
 }
 
@@ -60,7 +60,7 @@ html{
     height:inherit;
     z-index: 2;
     position: absolute;
-    border-right: solid 3px darkblue;
+    border-right: solid 3px #0E353E;
 }
 
 .breaking_news_text{
@@ -78,7 +78,7 @@ html{
     z-index: 2;
     position:absolute;
     right:0;
-    border-left: solid 3px darkblue;
+    border-left: solid 3px #0E353E;
 }
 
 .btn_start_and_stop_anim{
@@ -100,25 +100,30 @@ html{
 
 /* Settings-Button */
   .button {
-    margin-left: auto;
+    /* margin-left: auto; */
     display: flex;
-    height: 40px;
-    width: 40px;
+    height: 42px;
+    width: 42px;
+    top: 46px;
+    right: 0;
+    position: fixed;
     padding: 0;
     background: #009578;
     border: none;
     outline: none;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border: 3px solid black;
     overflow: hidden;
     font-family: "Quicksand", sans-serif;
     font-weight: 600;
     cursor: pointer;
+    z-index: 10;
 }
 
   .button:hover {
     background: #008168;
   }
-  
+
   .button:active {
     background: #006e58;
   }
@@ -155,7 +160,7 @@ html{
     font-size: 12px;
     font-family: 'Roboto', sans-serif;
     margin: 3px;
-    border: 2px solid black;  
+    border: 2px solid black;
   }
 
   .internalcontainerW{
@@ -195,21 +200,24 @@ html{
   }
 
   .article_link{
-    
+
   }
 
 /*form popup = container for settings popup */
 .form-popup {
     display: none;
     position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
     z-index: 9;
-    min-width: 40%;
+    right: 0;
+    top: 46px;
+    /* min-width: 40%; */
+    width: 40%;
     background: rgb(135, 125, 125);
     border: 2px solid black;
   }
-  
+
   /*arranges close and search button next to each other*/
   .selector-buttons{
       display: flex;
@@ -225,12 +233,12 @@ html{
     opacity: 0.8;
     bottom: 0;
   }
-  
+
   /* Add a red background color to the cancel button */
   .form-container .cancel {
     background-color: red;
   }
-  
+
   /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
@@ -273,6 +281,8 @@ form button:hover{
     align-items: center;
 }
 .todo-list{
+  display: flex;
+  flex-wrap: wrap;
     min-width: 30%;
     list-style: none;
 }
@@ -308,5 +318,3 @@ form button:hover{
     transform: translateY(8rem) rotateZ(20deg);
     opacity: 0;
 }
-
-
