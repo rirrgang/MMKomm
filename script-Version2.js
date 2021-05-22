@@ -267,7 +267,7 @@ var data = {
   
   
   
-  var colors = ['rgb(0, 163, 108)', 'rgb(63, 0, 255)', 'rgb(31, 81, 255)', 'rgb(210, 125, 45)', 'rgb(128, 0, 0)', 'rgb(0, 255, 255)', 'rgb(255, 191, 0)', 'rgb(159, 43, 104)', 'rgb(218, 112, 214)'];
+  var colors = ['rgb(0, 163, 108)', 'rgb(63, 0, 255)', 'rgb(31, 81, 255)', 'rgb(210, 125, 45)', 'rgb(128, 0, 0)', 'rgb(255, 191, 0)', 'rgb(159, 43, 104)', 'rgb(218, 112, 214)','rgb(0,191,255)'];
   
   for(var i=0; i<top_headlines.length; i++){
     //Create HTML Nodes
@@ -276,7 +276,7 @@ var data = {
     var text = document.createTextNode(top_headlines[i]); //get Titles of the Articles
   
     if(colors.length == 0){
-      colors.push('rgb(0, 163, 108)', 'rgb(63, 0, 255)', 'rgb(31, 81, 255)', 'rgb(210, 125, 45)', 'rgb(128, 0, 0)', 'rgb(0, 255, 255)', 'rgb(255, 191, 0)', 'rgb(159, 43, 104)', 'rgb(218, 112, 214)');
+      colors.push('rgb(0, 163, 108)', 'rgb(63, 0, 255)', 'rgb(31, 81, 255)', 'rgb(210, 125, 45)', 'rgb(128, 0, 0)', 'rgb(255, 191, 0)', 'rgb(159, 43, 104)', 'rgb(218, 112, 214)', 'rgb(0,191,255)');
     }
     var x = Math.floor(Math.random() * colors.length);
     var random_color = colors[x]
