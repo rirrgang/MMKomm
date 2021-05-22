@@ -52,40 +52,91 @@
         //     const search_box = document.getElementById("search_box");
         //     search_box.appendChild(new_div);
         // }
+</script>
+
+
+
+
+
+
+    <div id="marquee"></div>
+
+
+    <button type="button" class="button" onclick="openForm()">
+        <!-- <span class="button__icon">
+            <i class="fas fa-sliders-h"></i>
+        </span> -->
+        <div class="button__icon">
+            <i class="fas fa-sliders-h"></i>
+        </div>
+      </button>
+
+    <div class="form-popup" id="myForm" style="display: none;">
+            <div class="form-container">
+            <form>
+                <input type="text" class="todo-input">
+                <button class="todo-button" type="submit" onclick="addTodo()">
+                    <i class="fas fa-plus-square"></i>
+                </button>
+            </form>
+            <div class="todo-container">
+                <ul class="todo-list"></ul>
+            </div>
+        <div class="selector-buttons">
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        <button type="submit" class="btn">Search</button>
+        </div>
+    </div>
+      </div>
+
+    <div class="holdingcontainer" id="h_container1">
+        <div class="internalcontainerW"><h1>Evaluations</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div class="internalcontainerR"><h1>Due Dilligence</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div class="internalcontainerB"><h1>Mergers and Acquisitions</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+      </div>
+      <div class="holdingcontainer" id="h_container2">
+        <div class="internalcontainerW"><h1>Evaluations</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div class="internalcontainerR"><h1>Due Dilligence</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div class="internalcontainerB"><h1>Mergers and Acquisitions</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+      </div>
+      <div class="holdingcontainer" id="h_container3">
+        <div class="internalcontainerW"><h1>Evaluations</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div class="internalcontainerR"><h1>Due Dilligence</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div class="internalcontainerB"><h1>Mergers and Acquisitions</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+      </div>
+
+<script>
+    const todoInput = document.querySelector('.todo-input');
+    const todoButton = document.querySelector('.todo-button');
+    const todoList = document.querySelector('.todo-list');
+    // const filterOption = document.querySelector('.filter-todo');
     
-        const todoInput = document.querySelector('.todo-input');
-            const todoButton = document.querySelector('.todo-button');
-            const todoList = document.querySelector('.todo-list');
-            const filterOption = document.querySelector('.filter-todo');
+    document.addEventListener('DOMContentLoaded', getTodos); //EventListener wenn Seite lädt
+    todoButton.addEventListener('click', addTodo);
+    todoList.addEventListener('click',deleteCheck);
+            // filterOption.addEventListener('click', filterTodo);
     
-            document.addEventListener('DOMContentLoaded', getTodos); //EventListener wenn Seite lädt
-            todoButton.addEventListener('click', addTodo);
-            todoList.addEventListener('click',deleteCheck);
-            filterOption.addEventListener('click', filterTodo);
-    
-            function addTodo(event){
-                //prevent form from submitting (page refreshing)
-                event.preventDefault();
-                //Todo DIV
-                const todoDiv = document.createElement('div');
-                todoDiv.classList.add('todo');
-                //Create LI
-                const newTodo = document.createElement('li');
-                newTodo.innerText = todoInput.value;
-                newTodo.classList.add('todo-item');
-                todoDiv.appendChild(newTodo);
-                //Add Todo to local storage
-                saveLocalTodos(todoInput.value);
-                //Delete Button
-                const trashButton = document.createElement('button');
-                trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-                trashButton.classList.add("trash-btn");
-                todoDiv.appendChild(trashButton);
-                //Append to Child
-                todoList.appendChild(todoDiv);
-                //Clear Todo Input Value
-                todoInput.value = "";
-            }
+    function addTodo(event){
+        //prevent form from submitting (page refreshing)
+        event.preventDefault();
+        const todoDiv = document.createElement('div');
+        todoDiv.classList.add('todo');
+        const newTodo = document.createElement('li');
+        newTodo.innerText = todoInput.value;
+        newTodo.classList.add('todo-item');
+        todoDiv.appendChild(newTodo);
+        //Add Todo to local storage
+        saveLocalTodos(todoInput.value);
+        //Delete Button
+        const trashButton = document.createElement('button');
+        trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+        trashButton.classList.add("trash-btn");
+        todoDiv.appendChild(trashButton);
+        //Append to Child
+        todoList.appendChild(todoDiv);
+        //Clear Todo Input Value
+        todoInput.value = "";
+    }
             function deleteCheck(e){
                 const item = e.target;
                 //Delete TODO
@@ -161,53 +212,6 @@
     }
         </script>
 
-
-
-
-
-    <div id="marquee"></div>
-
-
-    <button type="button" class="button" onclick="openForm()">
-        <span class="button__text">Settings</span>
-        <span class="button__icon">
-            <i class="fas fa-sliders-h"></i>
-        </span>
-      </button>
-
-    <div class="form-popup" id="myForm" style="display: none;">
-            <div class="form-container">
-            <form>
-                <input type="text" class="todo-input">
-                <button class="todo-button" type="submit" onclick="addTodo()">
-                    <i class="fas fa-plus-square"></i>
-                </button>
-            </form>
-            <div class="todo-container">
-                <ul class="todo-list"></ul>
-            </div>
-        <div class="selector-buttons">
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        <button type="submit" class="btn">Search</button>
-        </div>
-    </div>
-      </div>
-
-    <div class="holdingcontainer" id="h_container1">
-        <div class="internalcontainerW"><h1>Evaluations</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        <div class="internalcontainerR"><h1>Due Dilligence</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        <div class="internalcontainerB"><h1>Mergers and Acquisitions</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-      </div>
-      <div class="holdingcontainer" id="h_container2">
-        <div class="internalcontainerW"><h1>Evaluations</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        <div class="internalcontainerR"><h1>Due Dilligence</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        <div class="internalcontainerB"><h1>Mergers and Acquisitions</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-      </div>
-      <div class="holdingcontainer" id="h_container3">
-        <div class="internalcontainerW"><h1>Evaluations</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        <div class="internalcontainerR"><h1>Due Dilligence</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        <div class="internalcontainerB"><h1>Mergers and Acquisitions</h1><img class="dasimages" src="test_img.jpg" width="100%"/>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-      </div>
 
 </body>
 <script type="text/javascript" src="script-Version2.js"></script>

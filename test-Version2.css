@@ -48,7 +48,6 @@ html{
     float:left;
     text-align: center;
     line-height: 40px;
-    /* vertical-align: middle; */
     font-size: 16.5px;
     font-weight: bold;
     padding-left: 10px;
@@ -101,11 +100,10 @@ html{
 
 /* Settings-Button */
   .button {
-    margin-top: 5px;
     margin-left: auto;
-    margin-right: auto;
     display: flex;
-    height: 50px;
+    height: 40px;
+    width: 40px;
     padding: 0;
     background: #009578;
     border: none;
@@ -113,11 +111,10 @@ html{
     border-radius: 5px;
     overflow: hidden;
     font-family: "Quicksand", sans-serif;
-    font-size: 20px;
     font-weight: 600;
     cursor: pointer;
-  }
-  
+}
+
   .button:hover {
     background: #008168;
   }
@@ -125,19 +122,20 @@ html{
   .button:active {
     background: #006e58;
   }
-  
-  .button__text,
+
   .button__icon {
     display: inline-flex;
     align-items: center;
-    padding: 0 24px;
     color: #fff;
     height: 100%;
-  }
-  
-  .button__icon {
+    width: 100%;
     font-size: 1.5em;
     background: rgba(0, 0, 0, 0.08);
+  }
+
+  .button__icon i{
+    margin-left: auto;
+    margin-right: auto;
   }
 
 /* .holdingcontainer = container for news boxes */
