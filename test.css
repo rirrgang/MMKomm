@@ -22,7 +22,7 @@ body{
     height: 40px;
     float:left;
     
-    animation: marquee 120s linear infinite;
+    animation: marquee 30s linear infinite;
 
     position: absolute;
     overflow: hidden;  
@@ -95,7 +95,5 @@ body{
     0% { transform: translateX(0%); }
     100% { transform: translateX(-100%); }
   }
-
-@keyframes{}
 
 
