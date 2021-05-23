@@ -78,6 +78,8 @@ animate_Marquee();
 //generate_news_boxes();
 add_array_to_news_boxes(normal_news.articles);
 
+generate_SettingsBtn();
+generate_settings();
 
 
 
