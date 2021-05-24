@@ -33,7 +33,11 @@ function generateMarquee(){
     scroll_ui_container.appendChild(btn_start_and_stop_anim);
     //btn_start_and_stop_anim.innerHTML = "Toggle Stop";
     btn_start_and_stop_anim.onmousedown = function(){toggle_animate_marquee();}
-  
+
+    //marquee_container hover effekt => toggle animation (start stop)
+    marquee_container.onmouseenter = function(){toggle_animate_marquee();}
+    marquee_container.onmouseleave = function(){toggle_animate_marquee();}
+
     //Marquee in HTML-Doc hinzufuegen
     var marq = document.getElementById("marquee");
     marq.appendChild(marquee);

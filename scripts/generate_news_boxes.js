@@ -92,7 +92,7 @@ function add_new_article_container(holdingcontainer, article_count){
             article_link.classList.add("article_link");
             article_link.id = "article_link"+article_count;
             article_link.href = "#";
-            article_link.innerHTML = "Article Link Placeholder";
+            article_link.innerHTML = "Read More";
             internalcontainer.appendChild(article_link);
 }
 
@@ -106,8 +106,16 @@ function update_article_infos(article, article_count){
     if(article){
         if(article.title){article_title.innerHTML = article.title;}
         if(article.urlToImage){article_img.src = article.urlToImage;}
-        if(article.content){article_text.innerHTML = article.content;}
-        if(article.url){article_link.href = article.url;}
+        if(article.content){
+            var content = article.content;
+            content = content.replace(/\[\+.*\]/, ""); //to remove [+ xyz chars] in String;
+            article_text.innerHTML = content;
+        }
+        if(article.url){
+            article_link.href = article.url;
+        }else{
+            article_link.innerHTML = "";
+        }
     }
 }
 
