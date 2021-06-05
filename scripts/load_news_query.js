@@ -7,7 +7,7 @@ function load_news_from_checkboxes(){
             var entryJSON = check_for_cached_news_JSON(searched_entries[i]);
             
             if(entryJSON.totalResults != 0){
-                entryJSON.articles.forEach(article => { articles.push(article); })
+                entryJSON.articles.forEach(article => {articles.push({article: article, keyword: searched_entries[i]}); })
             }
         }
 

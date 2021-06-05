@@ -85,8 +85,9 @@ html{
 
 .btn_start_and_stop_anim{
     /* background-color : lightgray; */
-    width : 40px;
-    height : 40px;
+    /* width : 40px; */
+    /* height : 40px; */
+    cursor: pointer;
 }
 
 .btn_toggle_image{

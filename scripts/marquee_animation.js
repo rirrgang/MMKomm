@@ -3,7 +3,7 @@ var duration = 10;
 
 function animate_Marquee() {
   var marquee_container = document.getElementsByClassName("marquee_container")[0];
-  var start_position = 150;
+  var start_position = 0;//150;
   var position = start_position;
 
   var text_container = document.getElementsByClassName("text_container")[0];
@@ -38,19 +38,22 @@ var play_state = "running";
 
 function toggle_animate_marquee() {
   var marquee_container = document.getElementsByClassName("marquee_container")[0];
-  var btn_toggle_image = document.getElementsByClassName("btn_toggle_image")[0];
+  var btn_toggle_image = document.getElementsByClassName("button__icon")[0].getElementsByTagName("I")[0];
 
   switch (play_state) {
     case "paused":
-      btn_toggle_image.style.content = "url('/@resources/icons/pause_icon.png')";
+      /*btn_toggle_image.style.content = "url('/@resources/icons/pause_icon.png')";*/
+      btn_toggle_image.className = "fas fa-pause";
       play_state = "running";
       break;
     case "running":
-      btn_toggle_image.style.content = "url('/@resources/icons/play_icon.png')";
+      // btn_toggle_image.style.content = "url('/@resources/icons/play_icon.png')";
+      btn_toggle_image.className = "fas fa-play";
       play_state = "paused";
       break;
     default:
-      btn_toggle_image.style.content = "url('/@resources/icons/play_icon.png')";
+      // btn_toggle_image.style.content = "url('/@resources/icons/play_icon.png')";
+      btn_toggle_image.className = "fas fa-play";
       play_state = "paused";
       break;
   }
