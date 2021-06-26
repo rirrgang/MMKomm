@@ -1,5 +1,5 @@
-function generate_news_boxes(){
-    
+function generate_news_boxes() {
+
     var news_boxes = document.getElementById("news-boxes");
 
     //Add default holdingcontainers
@@ -13,7 +13,7 @@ function generate_news_boxes(){
         for (var j = 0; j < 3; j++) {
             var internalcontainer = document.createElement("DIV");
             internalcontainer.classList.add("internalcontainerW");
-            holdingcontainer.appendChild(internalcontainer);    
+            holdingcontainer.appendChild(internalcontainer);
 
             //add article keyword
             var article_keyword = document.createElement("p");
@@ -40,13 +40,24 @@ function generate_news_boxes(){
             article_text.innerHTML = "Article Text Placeholder";
             internalcontainer.appendChild(article_text);
 
+            //add article link container
+            var article_link_container = document.createElement("DIV");
+            article_link_container.classList.add("article_link_container")
+            internalcontainer.appendChild(article_link_container);
+
+            //add article link button
+            var article_link_button = document.createElement("DIV");
+            article_link_button.classList.add("article_link_button")
+            article_link_container.appendChild(article_link_button);
+
             //add default articl link
             var article_link = document.createElement("A");
             article_link.classList.add("article_link");
+            article_link.id = "article_link" + article_count;
             article_link.href = "#";
-            article_link.innerHTML = "Article Link Placeholder";
-            internalcontainer.appendChild(article_link);
-            
+            article_link.innerHTML = "Read More";
+            article_link_button.appendChild(article_link);
+
         }
 
     }
@@ -70,21 +81,21 @@ Vue.component('article_container', {
 */
 function add_new_article_container(holdingcontainer, article_count) {
 
-  /*  new Vue({
-        el: '#article_container'
-    });
+    /*  new Vue({
+          el: '#article_container'
+      });
 
-    
+      
 
-    var test = document.getElementById("test");
-    var test2 = document.createElement("article_container");
+      var test = document.getElementById("test");
+      var test2 = document.createElement("article_container");
 
-    test.appendChild(test2);
+      test.appendChild(test2);
 
-    */
+      */
 
     var internalcontainer = document.createElement("DIV");
-    internalcontainer.classList.add("internalcontainerW");
+    internalcontainer.classList.add("internalcontainer");
     internalcontainer.id = "internaltcontainer" + article_count;
     holdingcontainer.appendChild(internalcontainer);
 
@@ -117,13 +128,27 @@ function add_new_article_container(holdingcontainer, article_count) {
     article_text.innerHTML = "Article Text Placeholder";
     internalcontainer.appendChild(article_text);
 
+    //add article link container
+    var article_link_container = document.createElement("DIV");
+    article_link_container.classList.add("article_link_container")
+    internalcontainer.appendChild(article_link_container);
+
+    //add article link button
+    var article_link_button = document.createElement("DIV");
+    article_link_button.classList.add("article_link_button")
+    article_link_container.appendChild(article_link_button);
+    article_link_button.addEventListener("click", function(){
+        article_link.click();
+    });
+
     //add default articl link
     var article_link = document.createElement("A");
     article_link.classList.add("article_link");
     article_link.id = "article_link" + article_count;
     article_link.href = "#";
     article_link.innerHTML = "Read More";
-    internalcontainer.appendChild(article_link);
+    article_link.target = "_blank";
+    article_link_button.appendChild(article_link);
 }
 
 function update_article_infos(article, article_count, keyword) {
