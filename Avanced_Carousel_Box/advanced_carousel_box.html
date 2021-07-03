@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="carousel_box_style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="outer-container">
+        <div class="over-inner-header">
+            <div class="search-for-latest">Latest Stock Market News</div>
+            <button class="cancel-button"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="inner-container">
+            <div class="search-container">
+                <input type="text" class="input-search" placeholder="Search ...">
+                <div class="lens-container"><div class="fa fa-search"></div></div>
+            </div>
+
+
+            <div class="galery-container">
+            <div class="scrolly">
+                <button id="left"><i class="fas fa-chevron-left"></i></button>
+                <button id="right"><i class="fas fa-chevron-right"></i></button>
+            <ul class="carouselPre">
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Communication Services</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="1">
+                        <img src="./sector_pictures/communication_services.svg" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Consumer Discretionary</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="2">
+                        <img src="./sector_pictures/consumer_discretionary.png" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Consumer Staples</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="3">
+                        <img src="./sector_pictures/consumer_staples.svg" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Energy</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="4">
+                        <img src="./sector_pictures/energy.png" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Financials</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="5">
+                        <img src="./sector_pictures/financials.svg" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Healthcare</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="6">
+                        <img src="./sector_pictures/healthcare.png" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Industrials</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="7">
+                        <img src="./sector_pictures/industrials.png" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Information Technology</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="8">
+                        <img src="./sector_pictures/technology.png" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Materials</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="9">
+                        <img src="./sector_pictures/materials.png" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Real Estate</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="10">
+                        <img src="./sector_pictures/real_estate.svg" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+                <li class="itemsC">
+                    <div class="header-container">
+                        <h1 class="leftTxtDet">Utilities</h1>
+                    </div>
+                    <div class="bgImg" data-for-tab="11">
+                        <img src="./sector_pictures/utilities.png" alt="image">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </div>
+        <div class="search-container-below">
+            <button class="search-button">Search News</button>
+      </div>
+      <div class="content">
+        <ul class="ks-cboxtags">
+            <div class="tabs_content" data-tab="1">
+                <li><input type="checkbox" id="communication_services_1" value="AT&T"><label for="communication_services_1">AT&T</label></li>
+                <li><input type="checkbox" id="communication_services_2" value="Charter Communications"><label for="communication_services_2">Charter Communications</label></li>
+                <li><input type="checkbox" id="communication_services_3" value="Comcast"><label for="communication_services_3">Comcast</label></li>
+                <li><input type="checkbox" id="communication_services_4" value="Liberty Broadband Corporation"><label for="communication_services_4">Liberty Broadband Corporation</label></li>
+                <li><input type="checkbox" id="communication_services_5" value="T-Mobile US"><label for="communication_services_5">T-Mobile US</label></li>
+                <li><input type="checkbox" id="communication_services_6" value="Twilio"><label for="communication_services_6">Twilio</label></li>
+                <li><input type="checkbox" id="communication_services_7" value="Verizon"><label for="communication_services_7">Verizon</label></li>
+                <li><input type="checkbox" id="communication_services_8" value="ViacomCBS"><label for="ccommunication_services_8">ViacomCBS</label></li>
+                <li><input type="checkbox" id="communication_services_9" value="Vodafone Group"><label for="communication_services_9">Vodafone Group</label></li>
+                <li><input type="checkbox" id="communication_services_10" value="Zoom Video Communications"><label for="communication_services_10">Zoom Video Communications</label></li>
+            </div>
+            <div class="tabs_content" data-tab="2">
+                <li><input type="checkbox" id="consumer_discretionary_1" value="Amazon"><label for="consumer_discretionary_1">Amazon</label></li>
+                <li><input type="checkbox" id="consumer_discretionary_2" value="Etsy"><label for="consumer_discretionary_2">Etsy</label></li>
+                <li><input type="checkbox" id="consumer_discretionary_3" value="Home Depot"><label for="consumer_discretionary_3">Home Depot</label></li>
+                <li><input type="checkbox" id="consumer_discretionary_4" value="Lowe's Companies"><label for="consumer_discretionary_4">Lowe's Companies</label></li>
+                <li><input type="checkbox" id="consumer_discretionary_5" value="McDonald's Corporation"><label for="consumer_discretionary_5">McDonald's Corporation</label></li>
+                <li><input type="checkbox" id="consumer_discretionary_6" value="Nike"><label for="consumer_discretionary_6">Nike</label></li>
+                <li><input type="checkbox" id="consumer_discretionary_7" value="Starbucks"><label for="consumer_discretionary_7">Starbucks</label></li>
+                <li><input type="checkbox" id="consumer_discretionary_8" value="Target"><label for="consumer_discretionary_8">Target</label></li>
+                <li><input type="checkbox" id="consumer_discretionary_9" value="Ulta Beauty"><label for="consumer_discretionary_9">Ulta Beauty</label></li>
+                <li><input type="checkbox" id="consumer_discretionary_10" value="Yum! Brands"><label for="consumer_discretionary_10">Yum! Brands</label></li>
+            </div>
+        </ul>
+      </div>
+    </div>
+</body>
+
+<li><input type="checkbox" id="communication_services_1" value="AT&amp;T"><label for="communication_services_1">AT&T</label></li>
+<li><input type="checkbox" id="communication_services_1" value="AT&amp;T"><label for="communication_services_1"></label></li>
+
+<script>
+
+const communication_services = ['AT&T', 'Charter Communications', 'Comcast', 'Libery Broadband Corporation', 'T-Mobile US', 'Twilio', 'Verizon', 'ViacomCBS', 'Vodafone Group', 'Zoom Video Communications'];
+const consumer_discretionary = ['Amazon', 'Etsy', 'Home Depot', 'Lowe\'s Companies', 'McDonald\'s Corporation', 'Nike', 'Starbucks', 'Target', 'Ulta Beauty', 'Yum! Brands'];
+const consumer_staples = ['Anheuser-Busch InBev', 'Coca-Cola', 'Constellation Brands', 'Diageo', 'Mondelez International', 'Pepsico', 'Phillip Morris', 'Procter & Gamble', 'Unilever', 'Wal-Mart'];
+const energy = ['BP', 'Chevron', 'ConcoPhillips', 'Enbridge', 'Equinor', 'Exxon Mobile', 'Kinder Morgan', 'Petro China', 'Petrobas', 'Royal Dutch Shell'];
+const financials = ['Bank of America', 'BlackRock', 'Citigroup', 'Goldman Sachs', 'JPMorgan Chase', 'Mastercard', 'Morgan Stanley', 'PayPal', 'Visa', 'Wells Fargo'];
+const healthcare = ['Abbot Laboratories', 'AbbVie', 'Amgen', 'AstraZeneca', 'Eli Lilly & Company', 'Johnson & Johnson', 'Novartis', 'Pfizer', 'Thermo Fisher Scientific', 'UnitedHealth Group'];
+const industrials = ['3M Company', 'Caterpillar', 'FedEx', 'General Electric', 'Honeywell International', 'Lockheed Martin', 'Raytheon Technologies', 'The Boeing Company', 'Union Pacific', 'United Parcel Services'];
+const information_technology = ['Adobe', 'Apple', 'Cisco', 'IBM', 'Intel', 'Microsoft', 'Nvidia', 'Oracle', 'Salesforce.com', 'SAP'];
+const materials = ['ArcelorMittal', 'Barrick Gold', 'BHP', 'Dow', 'DuPont', 'Ecolab', 'Linde', 'Newmont Corporation', 'Rio Tinto Group', 'Vale S.A.'];
+const real_estate = ['American Tower Corporation', 'Crown Castle International', 'Digital Realty Trust', 'Equinix', 'Equity Residential', 'KE Holdings', 'Public Storage', 'Prologis', 'Simon Property Group', 'Welltower'];
+const utilities = ['American Water Works', 'Dominion', 'Duke Energy', 'Exelon Corporation', 'National Grid', 'NextEra Energy', 'Sempra Energy', 'The Southern Company', 'WEC Energy Group', 'Xcel Energy']; 
+
+let item = document.createElement('li');
+let input_element = document.createElement('input');
+input_element.setAttribute('type', 'checkbox');
+input_element.setAttribute('id', 'communication_services_1');
+input_element.setAttribute('value', 'AT&T');
+let label_element = document.createElement('label');
+label_element.setAttribute('for', 'communication_services_1');
+item.appendChild(input_element);
+item.appendChild(label_element);
+console.log(item);
+
+
+
+
+// Checkmark function
+ const selected_category = document.querySelectorAll('.bgImg');
+ var content = document.querySelector('.content');
+ var check_array = [];
+ for (let i=0; i < selected_category.length; i++){
+     selected_category[i].addEventListener('click', ()=>{
+         let checkmark = selected_category[i].lastElementChild;
+         if(checkmark.style.display == 'block'){
+            checkmark.style.display = 'none';
+         }
+         else{
+            checkmark.style.display = 'block';
+            content.style.visibility = 'visible';
+            content.style.opacity = '1';
+         }
+        });
+    }
+
+//Galery functions
+let outtester = document.getElementsByClassName('scrolly');
+for(var i = 0; i < outtester.length; i++){
+    scrollification('scrolly', setyup = {
+        i: i,
+        scrollCont: '.carouselPre', 
+        itemsScroll: '.itemsC',
+        customButtons: true, 
+        butLeft: '#left', 
+        butRight: '#right'})
+    }
+function scrollification(mainConter ,setyup = {i, scrollcont, itemsScroll, customButtons, butLeft, butRight}){
+    if(setyup.i == null){
+        out = document.getElementsByClassName(mainConter)[0];
+    }
+    else{
+        out = document.getElementsByClassName(mainConter)[setyup.i];
+    }
+    
+    if(setyup.customButtons == true){
+        l = out.querySelector(setyup.butLeft);
+        r = out.querySelector(setyup.butRight);
+    }
+
+var out,
+a = out.querySelector(setyup.scrollCont),l, r,
+q =  out.querySelectorAll(setyup.itemsScroll);
+
+$(l).click(function(){
+    getBack();
+});
+
+$(r).click(function(){
+    getNext();
+});
+
+function getNext(){
+    for(var i = 0; i < q.length; i++){
+        if(q[i].getBoundingClientRect().left <= a.getBoundingClientRect().left + 50){
+            var index = q[i].offsetWidth;
+            $(a).scrollLeft($(a).scrollLeft() + index);
+        }
+    }
+}
+function getBack(){
+for(var i = 1; i < q.length; i++){
+    if(q[i].getBoundingClientRect().left < a.getBoundingClientRect().left + 50){
+        var index = q[i - 1].offsetWidth;
+        $(a).scrollLeft($(a).scrollLeft() - index);
+          }
+        }
+    }
+}
+
+
+//Generate Checkboxes
+function setupTabs(){
+    for(let m=0; m < selected_category.length; m++){
+        selected_category[m].addEventListener('click', ()=>{
+            const tabsContainer = selected_category[m];
+            const tabNumber = selected_category[m].dataset.forTab;
+            const tabToActivate = content.querySelector(`.tabs_content[data-tab="${tabNumber}"]`);
+            tabToActivate.style.display = 'block';
+        })
+    }
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+            setupTabs();
+            // document.querySelectorAll('.tabs').forEach(tabsContainer =>{
+            //     tabsContainer.querySelector('.tabs_sidebar .tabs_button').click();
+            });
+        // });
+
+
+
+</script>
+
+
+</html>
+
+
+
+
