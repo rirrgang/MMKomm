@@ -1,6 +1,6 @@
 function openSettings() {
   //   document.getElementById("myForm").style.display = "block";
-  var settings = document.getElementById("settings_menu");
+  var settings = document.getElementById("settings_menu_vue");
   if (settings.style.display === "none") {
       settings.style.display = "block";
       document.getElementById("modal_darkener").style.display = "block";
@@ -12,8 +12,12 @@ function openSettings() {
 }
 
 function closeSettings() {
-  document.getElementById("settings_menu").style.display = "none";
+  document.getElementById("settings_menu_vue").style.display = "none";
   document.getElementById("modal_darkener").style.display = "none";
+}
+
+function submitSettings(){
+  window.location.reload(true);
 }
 
 

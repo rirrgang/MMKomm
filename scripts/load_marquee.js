@@ -1,7 +1,16 @@
 //FUNCTIONS
 function add_to_breaking_news_array(bn_arr){
+
+  // var max_articles_num = 3;
+  //   var count;
+  //   if(bn_arr.length >= max_articles_num){
+  //       count = max_articles_num;
+  //   }else{
+  //       count = bn_arr.length;
+  //   }
+
     for (var i=0; i < bn_arr.length; i++) {
-      add_to_breaking_news(bn_arr[i].title, bn_arr[i].url)
+      add_to_breaking_news(bn_arr[i].article.title, bn_arr[i].article.url)
     }
   }
   

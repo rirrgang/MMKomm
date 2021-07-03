@@ -1,4 +1,8 @@
 function load_news_from_checkboxes(){
+
+    var max_articles_count = 3;
+    var article_count = max_articles_count;
+
     var searched_entries = JSON.parse(localStorage.getItem("checkboxes"));
     var articles = [];
     
@@ -6,12 +10,35 @@ function load_news_from_checkboxes(){
         for (let i = 0; i < searched_entries.length; i++) {
             var entryJSON = check_for_cached_news_JSON(searched_entries[i]);
             
-            if(entryJSON.totalResults != 0){
-                entryJSON.articles.forEach(article => {articles.push({article: article, keyword: searched_entries[i]}); })
+            if(entryJSON != null){
+                if(entryJSON.totalResults != 0){
+
+                    if(entryJSON.articles.length < max_articles_count){
+                        article_count = entryJSON.articles.length;
+                    }
+
+                    for(let j = 0; j < /*entryJSON.articles.length*/article_count; j++){
+                        articles.push({article: entryJSON.articles[j], keyword: searched_entries[i]});
+                    }
+
+
+                    //entryJSON.articles.forEach(article => {articles.push({article: article, keyword: searched_entries[i]}); })
+                }
             }
+            
         }
 
-        add_array_to_news_boxes(shuffle(articles));
+        console.log("Articles");
+        console.log(articles);
+
+        var shuffeled_articles = shuffle(articles);
+
+        add_array_to_news_boxes(shuffeled_articles);
+
+        console.log(shuffeled_articles);
+
+        add_to_breaking_news_array(shuffeled_articles);
+        animate_Marquee();
     }
 
     
