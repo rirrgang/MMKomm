@@ -1,0 +1,328 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+.outer-container{
+    position: fixed;
+    top: 37.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 800px;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px;
+}
+
+.over-inner-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-for-latest{
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Roboto';
+}
+
+.cancel-button{
+    cursor: pointer;
+    background: none;
+    text-align: right;
+    border: none;
+    outline: none;
+    display: flex;
+    padding: 15px;
+}
+
+.inner-container{
+    height: 385px;
+    width: 90%;
+    border: 2px solid orange;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.search-container{
+    display: flex;
+    align-items: center;
+    color: black;
+    background: white;
+    margin: 17.5px auto;
+    border-radius: 5px;
+    width: 80%;
+    border: 1px solid gray;
+    height: 50px;
+}
+
+.input-search{
+    margin: 0 0.5rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 12.5px 7.5px;
+    font-size: 15px;
+}
+
+.lens-container{
+    border-radius: 0px 5px 5px 0;
+    cursor: pointer;
+}
+
+.fa-search{
+    padding: 17px;
+}
+
+.galery-container{
+    display: flex;
+    justify-content: center;
+}
+
+.scrolly{
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+}
+
+.carouselPre{
+    grid-auto-flow: column;
+    display: grid;
+    grid-auto-columns: calc((100% - 2 * 30px)/ 3);
+    grid-column-gap: 30px;
+    scroll-snap-type: x mandatory;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+.carouselPre li{
+    scroll-snap-align: start;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.itemsC{
+    position: relative;
+    cursor: pointer;
+}
+
+.header-container{
+    height: 75px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid gray;
+}
+
+.leftTxtDet{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 23px;
+}
+
+.fa-check-circle{
+    display: none;
+    color: green;
+    opacity: 0.5;
+    font-size: 125px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carouselPre li .bgImg{
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.carouselPre li img{
+    width: 175px;
+    height: 175px;
+    object-fit: scale-down;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#left,#right{
+    background-color: rgba(255, 255, 255, 0.8);
+    outline: none;
+    border: transparent;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-60%);
+    cursor: pointer;
+    z-index: 2;
+}
+
+#left{
+    left: 0;
+}
+
+#right{
+    right: 0;
+}
+
+.fa-chevron-left, .fa-chevron-right{
+    font-size: 40px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.search-container-below{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button{
+    background: red;
+    color: white;
+    border-radius: 25px;
+    padding: 5px 15px;
+    font-size: 25px;
+    border: 2px solid red;
+    cursor: pointer;
+}
+
+.search-button:hover{
+    background: white;
+    color: red;
+}
+
+.content {
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 15px;
+    background-color: white;
+    overflow: hidden;
+    transition: visibility 0s, opacity 0.5s linear;
+    width: 800px;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px;
+  } 
+
+  ul.ks-cboxtags {
+    list-style: none;
+    padding: 20px;
+}
+ul.ks-cboxtags li{
+  display: inline;
+}
+ul.ks-cboxtags li label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    border: 2px solid #1bdbf8;
+    background-color: #12bbd4;
+    color: #fff;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+  border: 2px solid #e9a1ff;
+}
+
+.tabs_content{
+    display: none;
+}
+
+.tabs_content_active{
+    display: block;
+}
+
+@media only screen and (max-width: 890px) {
+    .outer-container {
+        width: 600px;
+    }
+
+    .carouselPre {
+        grid-auto-columns: calc((100% - 1 * 20px)/ 2);
+    }
+  }
+
+@media only screen and (max-width: 440px) {
+    .outer-container {
+        width: 300px;
+    }
+
+    .search-for-latest {
+        font-size: 18px;
+    }
+
+    .search-container, .scrolly {
+        width: 90%;
+    }
+
+    .carouselPre {
+        grid-auto-columns: 100%;
+    }
+
+    .carouselPre li img {
+        width: 235px;
+    }
+  }
