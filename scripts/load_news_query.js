@@ -1,45 +1,69 @@
 function load_news_from_checkboxes(){
 
-    var max_articles_count = 3;
-    var article_count = max_articles_count;
+    var settings = null;
+    var max_articles_count = 3
+    try {
+        settings = JSON.parse(localStorage.getItem("settings"));    
+        console.log(settings);
+    } catch (error) {
+        console.log("ERROR in load_news_query.js at function load_news_from_checkboxes: line 6 (JSON Parse Error)");
+        settings = null;
+    }
 
-    var searched_entries = JSON.parse(localStorage.getItem("checkboxes"));
+    if(settings != null && settings != ''){
+        max_articles_count = parseInt(settings.max_articles_count);
+    }
+    
+
+    var searched_entries = [];
+    try {
+        searched_entries = JSON.parse(localStorage.getItem("checkboxes"));
+    } catch (error) {
+        console.log("ERROR in load_news_query.js at function load_news_from_checkboxes: line 21 (JSON Parse Error)");
+        searched_entries = []
+    }
+
+    
     var articles = [];
     
-    if(searched_entries.length != 0){
-        for (let i = 0; i < searched_entries.length; i++) {
-            var entryJSON = check_for_cached_news_JSON(searched_entries[i]);
-            
-            if(entryJSON != null){
-                if(entryJSON.totalResults != 0){
-
-                    if(entryJSON.articles.length < max_articles_count){
-                        article_count = entryJSON.articles.length;
+    if(searched_entries != null){
+        if(searched_entries.length != 0){
+            for (let i = 0; i < searched_entries.length; i++) {
+                var entryJSON = check_for_cached_news_JSON(searched_entries[i]);
+                if(entryJSON != null){
+                    if(entryJSON.totalResults != 0){
+                        if(entryJSON.articles.length < max_articles_count){
+                            article_count = entryJSON.articles.length;
+                        }else{
+                            article_count = max_articles_count;
+                        }
+                        for(let j = 0; j < /*entryJSON.articles.length*/article_count; j++){
+                            articles.push({article: entryJSON.articles[j], keyword: searched_entries[i]});
+                        }
+    
+    
+                        //entryJSON.articles.forEach(article => {articles.push({article: article, keyword: searched_entries[i]}); })
                     }
-
-                    for(let j = 0; j < /*entryJSON.articles.length*/article_count; j++){
-                        articles.push({article: entryJSON.articles[j], keyword: searched_entries[i]});
-                    }
-
-
-                    //entryJSON.articles.forEach(article => {articles.push({article: article, keyword: searched_entries[i]}); })
                 }
+                
             }
-            
+
+            console.log("article_count: "+article_count);
+    
+            console.log("Articles");
+            console.log(articles);
+    
+            var shuffeled_articles = shuffle(articles);
+    
+            add_array_to_news_boxes(shuffeled_articles);
+    
+            console.log(shuffeled_articles);
+    
+            add_to_breaking_news_array(shuffeled_articles);
+            animate_Marquee();
         }
-
-        console.log("Articles");
-        console.log(articles);
-
-        var shuffeled_articles = shuffle(articles);
-
-        add_array_to_news_boxes(shuffeled_articles);
-
-        console.log(shuffeled_articles);
-
-        add_to_breaking_news_array(shuffeled_articles);
-        animate_Marquee();
     }
+    
 
     
 }

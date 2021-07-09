@@ -46,72 +46,6 @@ new Vue({
 });
 
 
-function generate_news_boxes() {
-
-    var news_boxes = document.getElementById("news-boxes");
-
-    //Add default holdingcontainers
-    for (var i = 0; i < 3; i++) {
-        var holdingcontainer = document.createElement("DIV");
-        holdingcontainer.classList.add("holdingcontainer");
-        holdingcontainer.id = "h_container" + i;
-        news_boxes.appendChild(holdingcontainer);
-
-        //add default articles
-        for (var j = 0; j < 3; j++) {
-            var internalcontainer = document.createElement("DIV");
-            internalcontainer.classList.add("internalcontainerW");
-            holdingcontainer.appendChild(internalcontainer);
-
-            //add article keyword
-            var article_keyword = document.createElement("p");
-            article_keyword.innerHTML = "Article Keyword Placeholder";
-            article_keyword.classList.add("article_keyword");
-            internalcontainer.appendChild(article_keyword);
-
-
-            //add default article title
-            var article_title = document.createElement("H1");
-            article_title.classList.add("article_title")
-            article_title.innerHTML = "Article Title Placeholder"
-            internalcontainer.appendChild(article_title);
-
-            //add default article image
-            var article_img = document.createElement("IMG");
-            article_img.classList.add("article_img");
-            article_img.src = "test_img.jpg";
-            internalcontainer.appendChild(article_img);
-
-            //add default article text
-            var article_text = document.createElement("P");
-            article_text.classList.add("article_text");
-            article_text.innerHTML = "Article Text Placeholder";
-            internalcontainer.appendChild(article_text);
-
-            //add article link container
-            var article_link_container = document.createElement("DIV");
-            article_link_container.classList.add("article_link_container")
-            internalcontainer.appendChild(article_link_container);
-
-            //add article link button
-            var article_link_button = document.createElement("DIV");
-            article_link_button.classList.add("article_link_button")
-            article_link_container.appendChild(article_link_button);
-
-            //add default articl link
-            var article_link = document.createElement("A");
-            article_link.classList.add("article_link");
-            article_link.id = "article_link" + article_count;
-            article_link.href = "#";
-            article_link.innerHTML = "Read More";
-            article_link_button.appendChild(article_link);
-
-        }
-
-    }
-
-}
-
 Vue.component('article_container', {
     template: `
         <div class="internalcontainerW">
@@ -218,7 +152,7 @@ function update_article_infos(article, article_count, keyword) {
 
 
 
-var article_count = 0;
+var article_counter = 0;
 var article_rows = 0;
 
 
@@ -226,7 +160,7 @@ function add_to_news_boxes(article, keyword) {
 
     var news_boxes = document.getElementById("news_boxes_vue");
 
-    if (article_count % 3 == 0) {
+    if (article_counter % 3 == 0) {
         //generate new row
         article_rows++;
 
@@ -243,9 +177,9 @@ function add_to_news_boxes(article, keyword) {
     }
 
     //generate new article container to row
-    article_count++;
-    add_new_article_container(holdingcontainer, article_count);
-    update_article_infos(article, article_count, keyword);
+    article_counter++;
+    add_new_article_container(holdingcontainer, article_counter);
+    update_article_infos(article, article_counter, keyword);
 
 }
 

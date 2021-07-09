@@ -1,29 +1,71 @@
 var animation = null;
 var duration = 10;
+var found_element = false;
 
 function animate_Marquee() {
-  var marquee_container = document.getElementsByClassName("marquee_container")[0];
-  var start_position = 0;//150;
-  var position = start_position;
 
-  var text_container = document.getElementsByClassName("text_container")[0];
-  if (text_container != null) {
-    var text_container_style = getComputedStyle(text_container);
-    var width = text_container_style.width.match(/\d+/)[0];
+  if (found_element) {
+    var marquee_container = document.getElementsByClassName("marquee_container")[0];
+    var start_position = 0; //150;
+    var position = start_position;
 
-    animation = setInterval(function () {
-      if (play_state != "paused") {
-        position--;
-        marquee_container.style.left = position + "px";
+    var text_container = document.getElementsByClassName("text_container")[0];
+    if (text_container != null) {
+      var text_container_style = getComputedStyle(text_container);
+      var width = text_container_style.width.match(/\d+/)[0];
 
-        if (position <= start_position - width) {
-          stop_animate_Marquee();
-          remove_from_breaking_news();
-          marquee_container.style.left = start_position + 2 + "px";
-          animate_Marquee();
+      animation = setInterval(function () {
+        if (play_state != "paused") {
+          position--;
+          marquee_container.style.left = position + "px";
+
+          if (position <= start_position - width) {
+            stop_animate_Marquee();
+            remove_from_breaking_news();
+            marquee_container.style.left = start_position + 2 + "px";
+            animate_Marquee();
+          }
         }
+      }, duration);
+    }
+  } else {
+    var marquee_container = document.getElementsByClassName("marquee_container")[0];
+
+    var checkExist = setInterval(function () {
+      if (marquee_container) {
+        found_element = true;
+        var start_position = 0; //150;
+        var position = start_position;
+
+        var text_container = document.getElementsByClassName("text_container")[0];
+        if (text_container != null) {
+          var text_container_style = getComputedStyle(text_container);
+          var width = text_container_style.width.match(/\d+/)[0];
+
+          animation = setInterval(function () {
+            if (play_state != "paused") {
+              position--;
+              marquee_container.style.left = position + "px";
+
+              if (position <= start_position - width) {
+                stop_animate_Marquee();
+                remove_from_breaking_news();
+                marquee_container.style.left = start_position + 2 + "px";
+                animate_Marquee();
+              }
+            }
+          }, duration);
+        }
+        clearInterval(checkExist);
+      } else {
+        marquee_container = document.getElementsByClassName("marquee_container")[0];
       }
-    }, duration);
+    }, 100); // check every 100ms}
+
+
+
+
+
   }
 
 
