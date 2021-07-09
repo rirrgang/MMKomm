@@ -85,7 +85,7 @@ function add_new_article_container(holdingcontainer, article_count) {
     var article_img = document.createElement("IMG");
     article_img.classList.add("article_img");
     article_img.id = "article_img" + article_count;
-    article_img.src = "test_img.jpg";
+    article_img.src = "../@resources/icons/article_img_placeholder.jpg";
     internalcontainer.appendChild(article_img);
 
     //add default article text

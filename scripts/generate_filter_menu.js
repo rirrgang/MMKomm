@@ -24,7 +24,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="2">
                                 <div class="selected_cbs">Selected: 0</div>
-                                <img src="@resources/sector_pictures/communication_services.svg" alt="image">
+                                <img src="../@resources/sector_pictures/communication_services.svg" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -34,7 +34,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="3">
                                 <div class="selected_cbs">Selected: 0</div>
-                                <img src="@resources/sector_pictures/consumer_discretionary.png" alt="image">
+                                <img src="../@resources/sector_pictures/consumer_discretionary.png" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -44,7 +44,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="4">
                                 <div class="selected_cbs">Selected: 0</div>
-                                <img src="@resources/sector_pictures/consumer_staples.svg" alt="image">
+                                <img src="../@resources/sector_pictures/consumer_staples.svg" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -54,7 +54,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="5">
                                 <div class="selected_cbs">Selected: 0</div>
-                                <img src="@resources/sector_pictures/energy.png" alt="image">
+                                <img src="../@resources/sector_pictures/energy.png" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -64,7 +64,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="6">
                                 <div class="selected_cbs">Selected: 0</div>
-                                <img src="@resources/sector_pictures/financials.svg" alt="image">
+                                <img src="../@resources/sector_pictures/financials.svg" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -74,7 +74,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="7">
                                 <div class="selected_cbs">Selected: 0</div> 
-                                <img src="@resources/sector_pictures/healthcare.png" alt="image">
+                                <img src="../@resources/sector_pictures/healthcare.png" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -84,7 +84,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="8">
                                 <div class="selected_cbs">Selected: 0</div>
-                                <img src="@resources/sector_pictures/industrials.png" alt="image">
+                                <img src="../@resources/sector_pictures/industrials.png" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -94,7 +94,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="9">
                                 <div class="selected_cbs">Selected: 0</div>                            
-                                <img src="@resources/sector_pictures/technology.png" alt="image">
+                                <img src="../@resources/sector_pictures/technology.png" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -104,7 +104,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="10">
                                 <div class="selected_cbs">Selected: 0</div>
-                                <img src="@resources/sector_pictures/materials.png" alt="image">
+                                <img src="../@resources/sector_pictures/materials.png" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -114,7 +114,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="11">
                                 <div class="selected_cbs">Selected: 0</div>
-                                <img src="@resources/sector_pictures/real_estate.svg" alt="image">
+                                <img src="../@resources/sector_pictures/real_estate.svg" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -124,7 +124,7 @@ function generate_filter_menu() {
                             </div>
                             <div class="bgImg" data-for-tab="12">
                                 <div class="selected_cbs">Selected: 0</div>
-                                <img src="@resources/sector_pictures/utilities.png" alt="image">
+                                <img src="../@resources/sector_pictures/utilities.png" alt="image">
                                 <i class="fas fa-check-circle" style="display:none"></i>
                             </div>
                         </li>
@@ -236,6 +236,11 @@ var checkExist = setInterval(function () {
                 }
 
                 if (checkbox_values) {
+                    var unique_checkboxes = checkbox_values.filter(function (item, pos) {
+                        return checkbox_values.indexOf(item) == pos;
+                    });
+                    checkbox_values = unique_checkboxes;
+
                     localStorage.setItem("checkboxes", JSON.stringify(checkbox_values));
                 }
 
@@ -268,10 +273,13 @@ var checkExist = setInterval(function () {
         function checkCBS() {
             var checkboxes_ls = loadCBSFromLocalStorage();
             var custom_checkboxes = [];
-            console.log(custom_checkboxes);
             var all_checkboxes = ks_cboxtags.getElementsByTagName("INPUT");
             var cb_found = false;
             if (all_checkboxes && checkboxes_ls) {
+                var unique_checkboxes_ls = checkboxes_ls.filter(function (item, pos) {
+                    return checkboxes_ls.indexOf(item) == pos;
+                });
+                checkboxes_ls = unique_checkboxes_ls;
                 for (let i = 0; i < checkboxes_ls.length; i++) {
 
                     for (var j = 0; j < all_checkboxes.length; j++) {

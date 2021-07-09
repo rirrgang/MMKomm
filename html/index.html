@@ -1,24 +1,35 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-    <div class="container">
-        <div class="ticker">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/filter_menu.css">
+    <link rel="stylesheet" href="../css/settings_menu.css">
 
-            <div class="title"><h5>Breaking News</h5></div>
-            <div class="news">
-                <marquee>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio est rerum ipsam. Deleniti magnam asperiores nam modi beatae alias nisi velit voluptas, ipsum at maxime saepe, veniam ducimus rem fugiat!
-                    </p>
-                </marquee>
-            </div>
-        </div>
-    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div class="modal-darkener" id="modal_darkener"></div>
+    <marquee_vue id="marquee_vue"></marquee_vue>
+    <button id="settings_btn"></button>
+    <settings_menu_vue id="settings_menu_vue" style="display:none"></settings_menu_vue>
+    <button id="filterMenu_btn"></button>
+    <filter_menu_vue id="filter_menu_vue" style="display:none"></filter_menu_vue>
+    <news_boxes_vue id="news_boxes_vue" style="top: 42px; position:absolute; z-index:-1;"></news_boxes_vue>
 </body>
+<script type="text/javascript" src="../scripts/import_news_ticker.js"></script>
+
 </html>
