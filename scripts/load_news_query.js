@@ -63,7 +63,7 @@ function load_news_from_checkboxes(show_articles = false){
             console.log(shuffeled_articles);
     
             add_to_breaking_news_array(shuffeled_articles);
-            animate_Marquee();
+            //animate_Marquee();
         }
     }
     

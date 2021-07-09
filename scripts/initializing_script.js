@@ -18,7 +18,7 @@ generate_settings_menu();
 
 //Load Top Headlines + Custom Marquee Animation
 //add_to_breaking_news_array(breaking_news.articles);
-animate_Marquee();
+//animate_Marquee();
 
 
 //load_news_from_checkboxes();

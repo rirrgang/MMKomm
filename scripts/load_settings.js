@@ -60,18 +60,19 @@ if (modal_darkener) {
 
 function load_saved_settings() {
 
-  try {
+  //try {
     var settings = JSON.parse(localStorage.getItem("settings"));
-
     
     show_articles(settings.show_articles);
     set_saved_settings(settings);
     set_news_ticker_bottom_pos(settings.news_ticker_bottom_pos);
 
+    animate_Marquee();
 
-  } catch (error) {
-    console.log("Error in script: load_settings.js\r\nat position: 50\r\nFailed to Parse JSON");
-  }
+
+  //} catch (error) {
+    //console.log("Error in script: load_settings.js\r\nat position: 50\r\nFailed to Parse JSON");
+  //}
 
 }
 
