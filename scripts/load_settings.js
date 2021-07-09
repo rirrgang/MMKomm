@@ -156,9 +156,7 @@ function set_news_ticker_bottom_pos(is_bottom) {
 }
 
 function show_articles(show_articles) {
-  if (show_articles) {
-    load_news_from_checkboxes();
-  }
+    load_news_from_checkboxes(show_articles);
 }
 
 

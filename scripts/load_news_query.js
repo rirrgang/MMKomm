@@ -1,7 +1,7 @@
-function load_news_from_checkboxes(){
+function load_news_from_checkboxes(show_articles = false){
 
     var settings = null;
-    var max_articles_count = 3
+    var max_articles_count = 3;
     try {
         settings = JSON.parse(localStorage.getItem("settings"));    
         console.log(settings);
@@ -55,7 +55,10 @@ function load_news_from_checkboxes(){
     
             var shuffeled_articles = shuffle(articles);
     
-            add_array_to_news_boxes(shuffeled_articles);
+            if(show_articles){
+                add_array_to_news_boxes(shuffeled_articles);
+            }
+            
     
             console.log(shuffeled_articles);
     
