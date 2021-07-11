@@ -60,7 +60,7 @@ if (modal_darkener) {
 
 function load_saved_settings() {
 
-  //try {
+  try {
     var settings = JSON.parse(localStorage.getItem("settings"));
     
     show_articles(settings.show_articles);
@@ -70,10 +70,23 @@ function load_saved_settings() {
     animate_Marquee();
 
 
-  //} catch (error) {
-    //console.log("Error in script: load_settings.js\r\nat position: 50\r\nFailed to Parse JSON");
-  //}
+  } catch (error) {
+    console.log("Error in script: load_settings.js\r\nat position: 50\r\nFailed to Parse JSON");
+    console.log("create standard settings...")
+    create_standard_settings();
+    console.log("creation finished.")
+  }
 
+}
+
+function create_standard_settings(){
+  var settings = {
+    news_ticker_bottom_pos: false,
+    show_articles: false,
+    max_articles_count: 5
+  };
+
+  localStorage.setItem("settings", JSON.stringify(settings));
 }
 
 function set_saved_settings(settings) {
